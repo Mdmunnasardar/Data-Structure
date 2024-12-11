@@ -13,7 +13,7 @@ void Traverse(Node *ptr)
 {
     while (ptr != nullptr)
     {
-        cout << ptr->data << "->";
+        cout << ptr->data << " ";
         ptr = ptr->next;
     }
     cout<<"NULL";
