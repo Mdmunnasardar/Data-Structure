@@ -5,64 +5,59 @@ class Node
 public:
     int data;
     Node *next;
-    Node *prev;
-    Node(int value) : data(value), next(nullptr), prev(nullptr) {}
+    Node(int value) : data(value), next(nullptr) {}
 };
 class Linkedlist
 {
 private:
     Node *head;
-    Node *tail;
+
 public:
-    Linkedlist(): head(nullptr), tail(nullptr){}
-    void insertAtHead(int data){
+    Linkedlist() : head(nullptr) {}
+    void insertAtHead(int data)
+    {
         Node *newNode = new Node(data);
-        if (head == nullptr)
-        {
-            head = tail = newNode;
-            return;
-        }
         newNode->next = head;
-        head->prev = newNode;
         head = newNode;
-        
     }
-    void deleteHead(){
+    void deleteHead()
+    {
         head = head->next;
-        head->prev = nullptr;
     }
-    void deleteTail(){
+    void deleteTail()
+    {
         Node *t1 = head;
         Node *t2 = head->next;
-        while (t2->next!=nullptr)
+        while (t2->next != nullptr)
         {
             t1 = t1->next;
             t2 = t2->next;
         }
         t1->next = nullptr;
-        tail = t1;
     }
-    void deleteNode(int target){
+    void deleteNode(int target)
+    {
         Node *t1 = head;
         Node *t2 = head->next;
-        while (t2->data!=target)
+        while (t2->data != target)
         {
             t1 = t1->next;
             t2 = t2->next;
         }
         t1->next = t2->next;
-        t2->next->prev = t1;
     }
-    void Traverse(){
+    void Traverse()
+    {
         Node *current = head;
-        while (current!=nullptr)
+        while (current != nullptr)
         {
-            cout<<current->data<<" ";
+            cout << current->data << " ";
             current = current->next;
         }
-        cout<<endl;
+        cout << endl;
     }
 };
+
 int main()
 {
     Linkedlist list;
