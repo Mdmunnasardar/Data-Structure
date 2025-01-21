@@ -15,6 +15,20 @@ class BinarySearchTree {
 private:
     Node* root;
 
+    Node* insertNode(Node* node, int value) {
+        if (node == nullptr) {
+            return new Node(value);
+        }
+
+        if (value < node->data) {
+            node->left = insertNode(node->left, value);
+        } else if (value > node->data) {
+            node->right = insertNode(node->right, value);
+        }
+
+        return node;
+    }
+
     // Helper function to find the minimum value in a subtree
     Node* findMin(Node* node) {
         while (node->left != nullptr) {
@@ -90,24 +104,9 @@ public:
         inOrderTraversal(root);
         cout << endl;
     }
-
-private:
-    // Helper function to insert a value
-    Node* insertNode(Node* node, int value) {
-        if (node == nullptr) {
-            return new Node(value);
-        }
-
-        if (value < node->data) {
-            node->left = insertNode(node->left, value);
-        } else if (value > node->data) {
-            node->right = insertNode(node->right, value);
-        }
-
-        return node;
-    }
 };
 
+// Main function
 int main() {
     BinarySearchTree bst;
 
