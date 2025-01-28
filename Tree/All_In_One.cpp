@@ -46,10 +46,7 @@ private:
         } else if (value > node->data) {
             node->right = deleteNode(node->right, value);
         } else {
-            if (node->left == nullptr && node->right == nullptr) {
-                delete node;
-                return nullptr;
-            }
+           
 
             if (node->left == nullptr) {
                 Node* temp = node->right;
