@@ -117,19 +117,20 @@
         bst.insert(50);
 
         bst.inorder();
-      
+      cout<<endl;
         int target;
-          cout <<"Enter searching number";
+          cout <<"Enter searching number: ";
         cin>>target;
 
         if(bst.search(target)){
-            cout<<"FOUND!";
+            cout<<"FOUND!"<<endl;
         }else{
-            cout<<"NOT FOUND!";
+            cout<<"NOT FOUND!"<<endl;
         }
+        
         bst.inorder();
         bst.delet(70);
-
+cout<<endl;
         bst.inorder();
 return 0;
     }
